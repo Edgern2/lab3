@@ -56,6 +56,24 @@ def display_records(employee_info):
     for item in employee_info:
         print((item["name"] + "\t" + str(item["age"]) + "\t" + item["department"] + "\t" + str(item["salary"])).expandtabs(15))
 
+
+
+
+def sort_employees_alphabetically():
+    sorted_name = sorted(employee_data, key = lambda item : item["name"])
+    return sorted_name
+
+def sort_employees_by_age():
+    sorted_age = sorted (employee_data, key = lambda item : item["age"])
+    return sorted_age
+
+def sort_employees_by_salary():
+    sorted_salary = sorted(employee_data, key = lambda item : item["salary"])
+    return sorted_salary
+
+
+
+
 def display_main_menu():
 
     print("\n----- Employee information Tracker -----")
@@ -66,7 +84,9 @@ def display_main_menu():
     print("2 - Display average salary")
     print("3 - Display employee within age range")
     print("4 - Display employee in a department")
-
+    print("5 - Display all records sorted in a alphabetical order")
+    print("6 - Display all records sorted by age")
+    print("7 - Display all records sorted by salary")
 
     print("Q - Quit")
 
@@ -91,8 +111,24 @@ def display_main_menu():
         employee_info = get_employees_by_dept(department)
         display_records(employee_info)
 
+    elif option == '5':
+        sorted_name = sort_employees_alphabetically()
+        display_records(sorted_name)
+
+    elif option == '6':
+        sorted_age = sort_employees_by_age()
+        display_records(sorted_age)
+
+
+    elif option == '7':
+        sorted_salary = sort_employees_by_salary()
+        display_records(sorted_salary)
+
+         
     elif option == 'Q':
         quit()
+
+
 
 def main():
 
